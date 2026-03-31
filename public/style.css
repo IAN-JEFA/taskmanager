@@ -1,4 +1,4 @@
-
+/* ── Reset & Base ─────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -32,7 +32,7 @@ body {
   line-height: 1.6;
 }
 
-
+/* ── Sidebar ──────────────────────────────────── */
 .sidebar {
   width: var(--sidebar-w);
   min-height: 100vh;
@@ -101,7 +101,7 @@ body {
 .dot { width: 8px; height: 8px; border-radius: 50%; }
 .dot--green { background: var(--low); box-shadow: 0 0 6px var(--low); }
 
-
+/* ── Main ─────────────────────────────────────── */
 .main {
   margin-left: var(--sidebar-w);
   flex: 1;
@@ -131,14 +131,14 @@ body {
   margin-top: .25rem;
 }
 
-
+/* ── Task Grid ────────────────────────────────── */
 .task-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
   gap: 1.15rem;
 }
 
-
+/* ── Task Card ────────────────────────────────── */
 .task-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -221,7 +221,7 @@ body {
   margin-top: .25rem;
 }
 
-
+/* ── Buttons ──────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -262,7 +262,7 @@ body {
 .btn--advance:hover { background: rgba(92,110,248,.22); }
 .btn:disabled { opacity: .4; cursor: not-allowed; }
 
-
+/* ── Empty state ──────────────────────────────── */
 .empty-state {
   grid-column: 1/-1;
   text-align: center;
@@ -272,7 +272,7 @@ body {
 .empty-state .empty-icon { font-size: 3.5rem; margin-bottom: 1rem; }
 .empty-state h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; margin-bottom: .5rem; color: var(--text); }
 
-
+/* ── Spinner ──────────────────────────────────── */
 .spinner-wrap {
   grid-column: 1/-1;
   display: flex;
@@ -288,7 +288,7 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-
+/* ── Modal ────────────────────────────────────── */
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,.65);
@@ -338,7 +338,7 @@ body {
 }
 .modal-close:hover { background: var(--surface2); color: var(--text); }
 
-
+/* ── Form ─────────────────────────────────────── */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -398,7 +398,7 @@ body {
   margin-top: 1.5rem;
 }
 
-
+/* ── Report ───────────────────────────────────── */
 .report-output {
   margin-top: 1.5rem;
 }
@@ -427,7 +427,7 @@ body {
 }
 .report-table .num.nonzero { color: var(--accent2); }
 
-
+/* ── Toast ────────────────────────────────────── */
 .toast {
   position: fixed;
   bottom: 2rem; right: 2rem;
@@ -449,12 +449,12 @@ body {
 .toast.success { border-color: var(--low); color: var(--low); }
 .toast.error   { border-color: var(--high); color: var(--high); }
 
-
+/* ── Scrollbar ────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-
+/* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .sidebar { width: 100%; min-height: auto; position: relative; flex-direction: row; flex-wrap: wrap; padding: 1rem; border-right: none; border-bottom: 1px solid var(--border); }
   .brand { margin-bottom: 0; margin-right: 1.5rem; }

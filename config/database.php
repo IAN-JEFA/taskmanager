@@ -1,5 +1,6 @@
 <?php
-
+// config/database.php
+// Copy .env.example to .env and fill in your credentials
 
 $envFile = __DIR__ . '/../.env';
 if (file_exists($envFile)) {
