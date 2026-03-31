@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TaskFlow — Task Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-name">TaskFlow</span>
+  </div>
+  <nav class="nav-filters">
+    <p class="nav-label">Filter by status</p>
+    <button class="nav-btn active" data-status="">All Tasks</button>
+    <button class="nav-btn" data-status="pending">Pending</button>
+    <button class="nav-btn" data-status="in_progress">In Progress</button>
+    <button class="nav-btn" data-status="done">Done</button>
+    <p class="nav-label" style="margin-top:2rem">Tools</p>
+    <button class="nav-btn" id="reportBtn">Daily Report</button>
+  </nav>
+  <div class="sidebar-footer">
+    <span class="dot dot--green"></span> API Connected
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">Task Board</h1>
+      <p class="page-sub" id="taskCount">Loading…</p>
+    </div>
+    <button class="btn btn--primary" id="openCreateBtn">+ New Task</button>
+  </header>
+
+  <!-- TASK GRID -->
+  <section class="task-grid" id="taskGrid">
+    <div class="spinner-wrap"><div class="spinner"></div></div>
+  </section>
+
+</main>
+
+<!-- ── CREATE TASK MODAL ──────────────────────────── -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Create New Task</h2>
+      <button class="modal-close" data-close="createModal">✕</button>
+    </div>
+    <form id="createForm" novalidate>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="f-title" placeholder="What needs to be done?" maxlength="255" required/>
+        <span class="field-error" id="err-title"></span>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Due Date</label>
+          <input type="date" id="f-due_date" required/>
+          <span class="field-error" id="err-due_date"></span>
+        </div>
+        <div class="form-group">
+          <label>Priority</label>
+          <select id="f-priority" required>
+            <option value="">Select…</option>
+            <option value="high">🔴 High</option>
+            <option value="medium">🟡 Medium</option>
+            <option value="low">🟢 Low</option>
+          </select>
+          <span class="field-error" id="err-priority"></span>
+        </div>
+      </div>
+      <div class="form-error" id="createFormError"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn--ghost" data-close="createModal">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="createSubmitBtn">Create Task</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── REPORT MODAL ───────────────────────────────── -->
+<div class="modal-overlay" id="reportModal">
+  <div class="modal modal--wide">
+    <div class="modal-header">
+      <h2>Daily Report</h2>
+      <button class="modal-close" data-close="reportModal">✕</button>
+    </div>
+    <div class="form-row" style="align-items:flex-end;gap:1rem">
+      <div class="form-group" style="flex:1">
+        <label>Select Date</label>
+        <input type="date" id="reportDate"/>
+      </div>
+      <button class="btn btn--primary" id="fetchReportBtn" style="margin-bottom:0">Fetch Report</button>
+    </div>
+    <div id="reportOutput" class="report-output"></div>
+  </div>
+</div>
+
+<!-- ── TOAST ──────────────────────────────────────── -->
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
