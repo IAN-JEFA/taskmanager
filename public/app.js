@@ -1,15 +1,13 @@
 // app.js — Task Manager Frontend
 
-// ── Config ────────────────────────────────────────────────────────────────────
+// ── Config 
 // Detect base path automatically — works for XAMPP subfolders and direct PHP server
 const _loc = window.location;
-const _base = _loc.pathname.replace(/\/public\/.*$/, '');   // strips /public/index.html
-const API_BASE = `${_loc.origin}${_base}/api`;
-
-// ── State ─────────────────────────────────────────────────────────────────────
+const API_PHP = 'https://task-manager-production-58b5.up.railway.app/api/index.php';
+// ── State 
 let currentFilter = '';
 
-// ── DOM Refs ──────────────────────────────────────────────────────────────────
+// ── DOM Refs 
 const taskGrid     = document.getElementById('taskGrid');
 const taskCount    = document.getElementById('taskCount');
 const createModal  = document.getElementById('createModal');
@@ -17,7 +15,7 @@ const reportModal  = document.getElementById('reportModal');
 const createForm   = document.getElementById('createForm');
 const toast        = document.getElementById('toast');
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── Helpers 
 const $ = id => document.getElementById(id);
 
 function showToast(msg, type = 'success') {
