@@ -27,7 +27,7 @@ taskmanager/
 
 ---
 
-## ⚙️ Running Locally (VS Code + XAMPP or Laragon)
+## ⚙️ Running Locally (VS Code + XAMPP)
 
 ### Step 1 — Install a local PHP/MySQL server
 
