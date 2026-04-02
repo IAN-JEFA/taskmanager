@@ -4,8 +4,8 @@
 // Builds the URL to api/index.php using ?_path= so routing works on
 // every server (XAMPP, PHP built-in, Railway) without needing .htaccess.
 const _origin  = window.location.origin;
-const _base    = window.location.pathname.replace(/\/(public\/)?[^/]*$/, '');
-const _apiFile = `${_origin}${_base}/api/index.php`;
+const _base    = '';
+const _apiFile = `'https://taskmanager-production-68de.up.railway.app/api/index.php'`;
 
 function apiUrl(route, extra = {}) {
     // route: '/tasks'  '/tasks/report'  '/tasks/5/status'  '/tasks/5'
