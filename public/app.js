@@ -5,7 +5,7 @@
 // every server (XAMPP, PHP built-in, Railway) without needing .htaccess.
 const _origin  = window.location.origin;
 const _base    = '';
-const _apiFile = `'https://taskmanager-production-68de.up.railway.app/api/index.php'`;
+const _apiFile = 'https://taskmanager-production-68de.up.railway.app/api/index.php';
 
 function apiUrl(route, extra = {}) {
     // route: '/tasks'  '/tasks/report'  '/tasks/5/status'  '/tasks/5'
